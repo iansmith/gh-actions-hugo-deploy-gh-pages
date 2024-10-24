@@ -15,6 +15,7 @@ echo "${GIT_DEPLOY_KEY}" > /root/.ssh/id_rsa && \
 chmod 400 /root/.ssh/id_rsa
 echo '=================== Make git comfortable ==================='
 git config --global --add safe.directory /github/workspace
+git config --global init.defaultBranch master
 echo $PATH
 echo  "node is"
 which node

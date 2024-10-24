@@ -13,11 +13,15 @@ mkdir /root/.ssh
 ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
 echo "${GIT_DEPLOY_KEY}" > /root/.ssh/id_rsa && \
 chmod 400 /root/.ssh/id_rsa
-echo '=================== Build site ==================='
+echo '=================== Make git comfortable ==================='
 git config --global --add safe.directory /github/workspace
+echo $PATH
+echo  "node is"
+which node
+echo '=================== Build site ==================='
 HUGO_ENV=production hugo --logLevel debug --minify -d public --cleanDestinationDir
 echo '=================== Publish to GitHub Pages ==================='
-cd dist
+cd public
 remote_repo="git@github.com:${GITHUB_DEPLOY_REPOSITORY}.git" && \
 remote_branch=${GITHUB_DEPLOY_BRANCH} && \
 echo "Pushing Builds to $remote_repo:$remote_branch" && \

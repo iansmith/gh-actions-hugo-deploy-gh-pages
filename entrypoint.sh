@@ -17,6 +17,7 @@ echo '=================== Make git comfortable ==================='
 git config --global --add safe.directory /github/workspace
 git config --global init.defaultBranch master
 echo $PATH
+export PATH=/opt/hostedtoolcache/node/22.9.0/x64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 echo  "node is"
 which node
 echo '=================== Build site ==================='
